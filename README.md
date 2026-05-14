@@ -6,7 +6,7 @@ API reactiva para gestionar **franquicias**, **sucursales** y **productos** con 
 
 - **JDK 17**
 - **Maven** (o el wrapper `mvnw` / `mvnw.cmd` incluido)
-- **Docker** (opcional, para MongoDB en contenedor, pruebas de integración e imagen de la aplicación)
+- **Docker** (opcional: MongoDB en contenedor, `docker compose` e imagen de la aplicación)
 
 ## Ejecución local
 
@@ -75,11 +75,34 @@ Prefijo base: `http://localhost:8081/api/v1`.
 
 ## Pruebas
 
-Las pruebas de integración usan **Testcontainers** (requiere Docker):
+El proyecto incluye **pruebas unitarias** (Mockito, Reactor `StepVerifier`, `WebTestClient` sobre el `RouterFunction` sin levantar MongoDB ni Docker):
+
+- `FranquiciaServiceTest` — lógica de negocio y errores (`BadRequestException`, `NotFoundException`).
+- `FranquiciaHandlerTest` — contrato HTTP de las rutas con el servicio mockeado.
+- `ApiExceptionHandlerTest` — respuestas JSON 400/404 y utilidades de validación.
+- `FranquiciaRouterConfigurationTest` — registro del enrutador.
+
+Ejecutar todas las pruebas:
 
 ```bash
 ./mvnw test
 ```
+
+En Windows:
+
+```bash
+mvnw.cmd test
+```
+
+### Cobertura de código (JaCoCo)
+
+El informe y la comprobación de cobertura (mínimo **80 %** de líneas sobre `service` y `web`; se excluyen DTOs, dominio, excepciones, repositorio y la clase `Application`) se activan con el perfil Maven **`coverage`**:
+
+```bash
+./mvnw verify -Pcoverage
+```
+
+Tras `verify -Pcoverage`, abra `target/site/jacoco/index.html` para ver el informe detallado.
 
 ## Imagen Docker (solo JAR)
 
@@ -103,7 +126,7 @@ No se incluye un pipeline concreto de nube en este repositorio; los pasos depend
 
 ## Git
 
-Se recomienda flujo con ramas (`main`/`develop`, *feature branches*) y *pull requests* antes de integrar. Publique el repositorio en GitHub, Bitbucket u otro servicio con visibilidad pública para la entrega de la prueba.
+Se recomienda flujo con ramas (`main`/`develop`, *feature branches*) y *pull requests* antes de integrar.
 
 ## Tecnologías
 
@@ -111,3 +134,4 @@ Se recomienda flujo con ramas (`main`/`develop`, *feature branches*) y *pull req
 - **Spring Data MongoDB Reactive**
 - Validación Jakarta Bean Validation
 - Rutas funcionales (`RouterFunction` + `Handler`)
+- Pruebas: JUnit 5, Mockito, Reactor Test; cobertura con **JaCoCo** (perfil `coverage`)
