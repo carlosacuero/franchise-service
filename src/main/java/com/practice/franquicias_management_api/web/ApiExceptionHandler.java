@@ -16,8 +16,10 @@ import com.practice.franquicias_management_api.exception.BadRequestException;
 import com.practice.franquicias_management_api.exception.NotFoundException;
 
 import jakarta.validation.ConstraintViolation;
+import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Mono;
 
+@Slf4j
 @Component
 @Order(-2)
 public class ApiExceptionHandler implements WebExceptionHandler {
@@ -25,9 +27,11 @@ public class ApiExceptionHandler implements WebExceptionHandler {
 	@Override
 	public Mono<Void> handle(ServerWebExchange exchange, Throwable ex) {
 		if (ex instanceof NotFoundException nfe) {
+			log.warn("404 {} - {}", exchange.getRequest().getURI().getRawPath(), nfe.getMessage());
 			return json(exchange, HttpStatus.NOT_FOUND, nfe.getMessage());
 		}
 		if (ex instanceof BadRequestException bre) {
+			log.warn("400 {} - {}", exchange.getRequest().getURI().getRawPath(), bre.getMessage());
 			return json(exchange, HttpStatus.BAD_REQUEST, bre.getMessage());
 		}
 		return Mono.empty();

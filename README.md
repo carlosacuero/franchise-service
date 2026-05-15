@@ -73,6 +73,23 @@ Copie el `mongo_connection_string` del output en `MONGODB_URI` o en `application
 
 Prefijo base: `http://localhost:8081/api/v1`.
 
+## Documentación API (Swagger / OpenAPI)
+
+Con la aplicación en marcha, la documentación interactiva está en:
+
+- **Swagger UI:** [http://localhost:8081/swagger-ui.html](http://localhost:8081/swagger-ui.html)
+- **OpenAPI JSON:** [http://localhost:8081/v3/api-docs](http://localhost:8081/v3/api-docs)
+
+Incluye todos los endpoints, esquemas de entrada (`CrearFranquiciaRequest`, `CrearSucursalRequest`, etc.), modelos de respuesta (`Franquicia`, `ProductoMaxStockPorSucursalResponse`) y respuestas de error (`ErrorResponse`).
+
+## Logging
+
+- **HTTP:** cada petición y respuesta se registra en `RequestLoggingWebFilter` (método, ruta, código HTTP, duración).
+- **Negocio:** `FranquiciaService` registra operaciones de creación, actualización y consulta.
+- **Errores:** `ApiExceptionHandler` y el handler registran validaciones fallidas y errores 400/404.
+
+Nivel por defecto del paquete de la aplicación: `INFO` (ajustable en `application.properties`).
+
 ## Pruebas
 
 El proyecto incluye **pruebas unitarias** (Mockito, Reactor `StepVerifier`, `WebTestClient` sobre el `RouterFunction` sin levantar MongoDB ni Docker):
