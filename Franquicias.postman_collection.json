@@ -1,0 +1,350 @@
+{
+  "info": {
+    "_postman_id": "ce19f9a4-8c3f-481b-8d8d-a9be2cd2edbd",
+    "name": "Franquicias",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "46633503",
+    "_collection_link": "https://go.postman.co/collection/46633503-ce19f9a4-8c3f-481b-8d8d-a9be2cd2edbd?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "crear una franquicia",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nombre\": \"prueba franqui\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8081/api/v1/franquicias",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8081",
+          "path": [
+            "api",
+            "v1",
+            "franquicias"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Obtener una franquicia",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nombre\": \"prueba franqui\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8081/api/v1/franquicias/6a0616d09166c46198187ba8",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8081",
+          "path": [
+            "api",
+            "v1",
+            "franquicias",
+            "6a0616d09166c46198187ba8"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "crear sucursales",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nombre\": \"sucursal\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8081/api/v1/franquicias/6a0616d09166c46198187ba8/sucursales",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8081",
+          "path": [
+            "api",
+            "v1",
+            "franquicias",
+            "6a0616d09166c46198187ba8",
+            "sucursales"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "crear producto de una sucursal de una franquicia",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nombre\": \"\",\r\n    \"stock\": 20\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8081/api/v1/franquicias/6a0616d09166c46198187ba8/sucursales/30e97269-6346-4536-8cc2-976ff69b3b05/productos",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8081",
+          "path": [
+            "api",
+            "v1",
+            "franquicias",
+            "6a0616d09166c46198187ba8",
+            "sucursales",
+            "30e97269-6346-4536-8cc2-976ff69b3b05",
+            "productos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Eliminar un producto de una sucursal de una franquicia",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8081/api/v1/franquicias/6a0616d09166c46198187ba8/sucursales/30e97269-6346-4536-8cc2-976ff69b3b05/productos/e9119cd4-980f-414d-afb3-e3708e3dd031",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8081",
+          "path": [
+            "api",
+            "v1",
+            "franquicias",
+            "6a0616d09166c46198187ba8",
+            "sucursales",
+            "30e97269-6346-4536-8cc2-976ff69b3b05",
+            "productos",
+            "e9119cd4-980f-414d-afb3-e3708e3dd031"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "actualizar stock",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"stock\":111\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8081/api/v1/franquicias/6a0616d09166c46198187ba8/sucursales/30e97269-6346-4536-8cc2-976ff69b3b05/productos/5916e5bb-ee10-409c-8212-ca9e065ae1ae/stock",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8081",
+          "path": [
+            "api",
+            "v1",
+            "franquicias",
+            "6a0616d09166c46198187ba8",
+            "sucursales",
+            "30e97269-6346-4536-8cc2-976ff69b3b05",
+            "productos",
+            "5916e5bb-ee10-409c-8212-ca9e065ae1ae",
+            "stock"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "obtiene el producto que más stock tiene por sucursal puntual",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nombre\": \"sucursal\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8081/api/v1/franquicias/6a0616d09166c46198187ba8/productos/mayor-stock-por-sucursal",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8081",
+          "path": [
+            "api",
+            "v1",
+            "franquicias",
+            "6a0616d09166c46198187ba8",
+            "productos",
+            "mayor-stock-por-sucursal"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "actualizar nombre franquicia",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nombre\": \"fruti mundo\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8081/api/v1/franquicias/6a0616d09166c46198187ba8/nombre",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8081",
+          "path": [
+            "api",
+            "v1",
+            "franquicias",
+            "6a0616d09166c46198187ba8",
+            "nombre"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "actualizar nombre sucursal",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nombre\": \"fruti mundo - sede Medellín\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8081/api/v1/franquicias/6a0616d09166c46198187ba8/sucursales/30e97269-6346-4536-8cc2-976ff69b3b05/nombre",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8081",
+          "path": [
+            "api",
+            "v1",
+            "franquicias",
+            "6a0616d09166c46198187ba8",
+            "sucursales",
+            "30e97269-6346-4536-8cc2-976ff69b3b05",
+            "nombre"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "actualizar nombre sucursal Copy",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nombre\": \"Mango\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8081/api/v1/franquicias/6a0616d09166c46198187ba8/sucursales/30e97269-6346-4536-8cc2-976ff69b3b05/productos/ec6f30ac-7644-4ec9-81e0-2e9e5dfd36ab/nombre",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8081",
+          "path": [
+            "api",
+            "v1",
+            "franquicias",
+            "6a0616d09166c46198187ba8",
+            "sucursales",
+            "30e97269-6346-4536-8cc2-976ff69b3b05",
+            "productos",
+            "ec6f30ac-7644-4ec9-81e0-2e9e5dfd36ab",
+            "nombre"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
